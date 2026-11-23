@@ -1,6 +1,7 @@
 """
 Model evaluation functions
 """
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -39,11 +40,15 @@ def evaluate_with_skore(
     y_train: pd.Series,
     X_test: pd.DataFrame,
     y_test: pd.Series,
-    chemin_graphique: str = "prediction_error.png",
+    chemin_graphique: str = "reports/figures/prediction_error.png",
 ) -> EstimatorReport:
     """Print skore metrics and variable importance, save the prediction error plot"""
     # Unfitted copy: skore fits the model itself and can therefore report
     # the training time.
+
+    chemin_graphique = Path(chemin_graphique)
+    chemin_graphique.parent.mkdir(parents=True, exist_ok=True)
+
     report = EstimatorReport(
         clone(pipe),
         X_train=X_train,
