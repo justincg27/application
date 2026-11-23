@@ -16,6 +16,11 @@ ayant la structure suivante:
 JETON_API="####" #renseigner la valeur pertinente
 ```
 
+Pour installer les packages utilisés dans le projet, taper :
+```bash
+pip install -r requirements.txt
+```
+
 ## Sources utilisées
 
 * Données DVF récupérées et simplifiées de https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres
